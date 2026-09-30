@@ -30,7 +30,7 @@
     cards().forEach(card=>linkPlayback(card).pause());
     updateAll();
   }
-  function pauseOtherSections(){pauseCover();$('#overview-video').pause();}
+  function pauseOtherSections(){pauseCover();$('#overview-video').pause();document.dispatchEvent(new CustomEvent('media-section',{detail:'comparison'}));}
   function methodCard(method,caseTitle){
     const paired=method.streams.length>1;
     const card=make('article','method-card'+(paired?' video-method':['hoifhli','light'].includes(method.id)?' interaction-method':' motion-method')+(method.id==='ours_smooth'?' ours':''));
@@ -38,18 +38,12 @@
     const heading=make('div','method-card-header');
     heading.append(make('h4','',method.name),make('span','method-category',method.category));
     card.append(heading);
-    const streams=make('div','method-streams');
-    for(const stream of method.streams){
-      const figure=make('figure'),video=make('video');
-      video.controls=true;video.muted=true;video.playsInline=true;video.preload='none';
-      video.dataset.src=stream.file;video.poster=stream.poster;
-      video.setAttribute('aria-label',caseTitle+' — '+method.name+' — '+stream.label);
-      video.addEventListener('loadedmetadata',()=>video.playbackRate=rate());
-      video.addEventListener('play',pauseOtherSections);
-      posterObserver.observe(video);
-      figure.append(video,make('figcaption','',stream.label));streams.append(figure);
+    if(paired)card.append(createWipePlayer(method.streams,caseTitle+' — '+method.name,pauseOtherSections));
+    else{
+      const streams=make('div','method-streams'),figure=make('figure');
+      const video=mediaVideo(method.streams[0],caseTitle+' — '+method.name,pauseOtherSections);
+      figure.append(video);streams.append(figure);card.append(streams);
     }
-    card.append(streams);
     const actions=make('div','method-actions'),play=make('button'),pause=make('button');
     const noun=paired?'pair':'motion';
     play.type=pause.type='button';pause.textContent='Pause '+noun;
@@ -61,7 +55,7 @@
   function showCase(){
     pauseComparison();
     status.className='sr-only';
-    videos().forEach(video=>posterObserver.unobserve(video));
+    disposeMedia(grid);
     const item=W2MComparison.find(c=>c.id===picker.value);
     grid.replaceChildren(...item.methods.map(method=>methodCard(method,item.title)));
     grid.setAttribute('aria-label',item.title+' — eight methods');
@@ -89,5 +83,6 @@
   $('#speed').addEventListener('change',()=>videos().forEach(video=>video.playbackRate=rate()));
   $('#overview-video').addEventListener('play',()=>{pauseCover();pauseComparison();});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseComparison();});
+  document.addEventListener('media-section',event=>{if(event.detail!=='comparison')pauseComparison();});
   showCase();
 })();

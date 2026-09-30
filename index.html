@@ -6,15 +6,15 @@
   <meta name="description" content="World2Motion jointly generates scene-aware 3D human motion and video from a single image and a text prompt. Explore the paper, method and synchronized video–motion results.">
   <meta name="theme-color" content="#050607">
   <meta property="og:title" content="World2Motion"><meta property="og:description" content="Turning Video World Models into 3D Human Motion Generators"><meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=body-3">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=interactive-5">
   <link rel="stylesheet" href="intro.css?v=seamless-2">
-  <noscript><style>.intro-scroll{height:auto}.intro-stage{height:auto;min-height:100svh;padding:80px 20px 120px;background:linear-gradient(#020609b8,#020609db),url(assets/cover-16-cases.webp?v=cover-selection-4) center/cover}.intro-film,.intro-type,.intro-kicker,.intro-dim{display:none}.intro-sr-only{position:relative!important;clip:auto;width:auto;height:auto;margin:0 0 40px;overflow:visible;white-space:normal;font-size:clamp(40px,9vw,140px);text-align:center}.opening-copy{position:relative;left:auto;top:auto;width:100%;opacity:1;transform:none;pointer-events:auto}.intro-chrome .quiet-button{display:none}</style></noscript>
+  <noscript><style>.intro-scroll{height:auto}.intro-stage{height:auto;min-height:100svh;padding:80px 20px 120px;background:linear-gradient(#020609b8,#020609db),url(assets/cover-16-cases.webp?v=interactive-5) center/cover}.intro-film,.intro-type,.intro-kicker,.intro-dim{display:none}.intro-sr-only{position:relative!important;clip:auto;width:auto;height:auto;margin:0 0 40px;overflow:visible;white-space:normal;font-size:clamp(40px,9vw,140px);text-align:center}.opening-copy{position:relative;left:auto;top:auto;width:100%;opacity:1;transform:none;pointer-events:auto}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#overview">Skip to content</a>
 <section class="intro-scroll" id="cover" aria-labelledby="hero-title">
   <div class="intro-stage" id="intro-stage">
-    <video class="intro-film" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/cover-16-cases.webp?v=cover-selection-4" aria-label="Sixteen examples with moving video and 3D motion comparisons"><source src="assets/cover-16-cases-mobile.mp4?v=cover-selection-4" media="(max-width: 650px)" type="video/mp4"><source src="assets/cover-16-cases.mp4?v=cover-selection-4" type="video/mp4"></video>
+    <video class="intro-film" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/cover-16-cases.webp?v=interactive-5" aria-label="Sixteen examples with moving video and 3D motion comparisons"><source src="assets/cover-16-cases-mobile.mp4?v=interactive-5" media="(max-width: 650px)" type="video/mp4"><source src="assets/cover-16-cases.mp4?v=interactive-5" type="video/mp4"></video>
     <div class="intro-dim" id="intro-dim"></div>
     <svg class="intro-type" id="intro-type" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
       <defs>
@@ -36,12 +36,10 @@
       <p class="affiliations"><span><sup>1</sup>Japan Advanced Institute of Science and Technology</span><span><sup>2</sup>The University of Tokyo</span><span><sup>3</sup>Alaya Lab</span><span><sup>4</sup>Institute of Science Tokyo</span></p>
     </div>
     <div class="resource-links">
-      <a class="button button-light" href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>arXiv</a>
-      <a class="button button-glass" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>Watch video</a>
-      <a class="button button-glass" href="#comparison">Compare methods</a>
+      <a class="button button-light" href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Paper</a>
     </div>
     </div>
-    <div class="intro-chrome"><a class="intro-scroll-hint" id="intro-hint" href="#overview">SCROLL TO EXPLORE <span aria-hidden="true">&#8595;</span></a><span class="intro-caption" id="intro-caption">16 EXAMPLES &middot; VIDEO &#8596; 3D MOTION</span><button id="hero-toggle" class="quiet-button" type="button" aria-controls="hero-video">Play cover</button></div>
+    <div class="intro-chrome"><a class="intro-scroll-hint" id="intro-hint" href="#overview">SCROLL TO EXPLORE <span aria-hidden="true">&#8595;</span></a><span class="intro-caption" id="intro-caption">16 EXAMPLES &middot; VIDEO &#8596; 3D MOTION</span></div>
   </div>
 </section>
 <header class="nav-shell"><nav aria-label="Main navigation"><a class="nav-brand" href="#cover">World<span>2</span>Motion</a><div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#comparison">Comparison</a><a href="#results">Results</a></div><a class="nav-paper" href="https://arxiv.org/pdf/2609.37004" target="_blank" rel="noopener">Read paper</a></nav></header>
@@ -67,8 +65,10 @@
       <table><caption class="sr-only">Table 2. Quantitative results of motion generation methods. Best values are bold.</caption><thead><tr><th scope="col">Method</th><th scope="col">FID ↓</th><th scope="col">R@1 ↑</th><th scope="col">MM-Dist ↓</th><th scope="col">Contact-F1 ↑</th><th scope="col">ISR ↑</th><th scope="col">Jerk ↓<small>(10 m/s³)</small></th><th scope="col">FSR ↓<small>(%)</small></th><th scope="col">PoseError ↓<small>(mm)</small></th><th scope="col">Time ↓<small>(s)</small></th></tr></thead><tbody><tr class="table-group"><th colspan="10" scope="rowgroup">Text-to-motion</th></tr><tr><th scope="row">HY-Motion</th><td>0.46</td><td>0.10</td><td>1.21</td><td>0.09</td><td>0.51</td><td>3.43</td><td><strong>1.25</strong></td><td>—</td><td>2.83</td></tr><tr><th scope="row">Kimodo</th><td>0.66</td><td>0.05</td><td>1.30</td><td>0.03</td><td>0.23</td><td>35.14</td><td>6.07</td><td>—</td><td><strong>1.93</strong></td></tr><tr><th scope="row">Go-to-Zero</th><td>0.51</td><td>0.04</td><td>1.35</td><td>0.07</td><td>0.36</td><td>17.50</td><td>3.42</td><td>—</td><td>2.57</td></tr><tr class="table-group"><th colspan="10" scope="rowgroup">Human–object interaction</th></tr><tr><th scope="row">HOIFHLI</th><td>0.82</td><td>0.02</td><td>1.37</td><td>0.09</td><td>0.12</td><td>10.62</td><td>6.28</td><td>—</td><td>13.94</td></tr><tr><th scope="row">LIGHT</th><td>0.62</td><td>0.03</td><td>1.35</td><td>0.17</td><td>0.46</td><td><strong>1.37</strong></td><td>11.60</td><td>—</td><td>25.88</td></tr><tr class="table-group"><th colspan="10" scope="rowgroup">Two-stage video generation and motion recovery</th></tr><tr><th scope="row">MiniMax-H3 + CameraHMR</th><td>0.69</td><td>0.10</td><td>1.32</td><td><strong>0.24</strong></td><td><strong>0.91</strong></td><td>37.22</td><td>6.41</td><td>—</td><td>523.67</td></tr><tr class="table-group"><th colspan="10" scope="rowgroup">Joint video–motion generation</th></tr><tr><th scope="row">CoMoVi</th><td>0.71</td><td>0.12</td><td>1.25</td><td>0.09</td><td>0.69</td><td>16.10</td><td>24.45</td><td>81.28</td><td>270.45</td></tr><tr class="ours-row"><th scope="row">World2Motion</th><td><strong>0.27</strong></td><td><strong>0.24</strong></td><td><strong>1.13</strong></td><td>0.22</td><td><strong>0.91</strong></td><td>8.35</td><td>2.80</td><td><strong>67.50</strong></td><td>156.59</td></tr></tbody></table>
     </div>
     <p class="table-note">Best values are bold. PoseError measures pelvis-relative agreement with CameraHMR estimates from generated video. ISR measures interaction completion; it does not measure exact physical contact.</p>
+    <div class="stats"><article><strong>3.34<span>×</span></strong><h4>Faster inference</h4><p>vs. MiniMax-H3 + CameraHMR<br>156.59 s vs. 523.67 s</p></article><article><strong>91<span>%</span></strong><h4>Interaction success</h4><p>Matches the two-stage baseline<br>on the evaluated benchmark</p></article><article><strong>67.5<span>mm</span></strong><h4>Video–motion PoseError</h4><p>17.0% lower than CoMoVi<br>under the same evaluation</p></article></div>
+    <p class="results-note">Motion-only methods remain faster. The two-stage pipeline has higher Contact-F1 (0.24 vs. 0.22); equal interaction success does not imply equal contact accuracy.</p>
     <div class="comparison-viewer">
-      <div class="viewer-heading"><h3>See the methods in motion</h3><p>Choose a case to compare all eight methods.</p></div>
+      <div class="viewer-heading"><h3>Qualitative comparison</h3><p>Choose a case. Drag the divider to explore video and 3D motion.</p></div>
       <div class="comparison-controls"><div class="case-picker"><label for="case-select">Interaction case</label><select id="case-select"><option value="case1">01 — Lift a plastic box</option><option value="case2">02 — Chair interaction</option><option value="case3">03 — Sofa interaction</option></select></div><div class="comparison-actions"><button class="button button-light" id="compare-play" type="button">Play all</button><button class="button button-outline" id="compare-pause" type="button" disabled>Pause all</button><div class="speed-control"><label for="speed">Speed</label><select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></div></div></div>
       <p id="comparison-status" class="sr-only" role="status" aria-live="polite"></p>
       <div id="comparison-grid" class="comparison-grid" aria-label="Eight methods for the selected interaction case"></div>
@@ -77,10 +77,9 @@
     </div>
   </section>
   <section class="section" id="results" aria-labelledby="results-heading">
-    <div class="section-heading"><h2 class="eyebrow" id="results-heading">04 / RESULTS</h2><span>Evaluated on 100 interaction cases</span></div>
-    <div class="results-heading"><h3>Scene-aware motion.<br><span>Jointly generated.</span></h3><p>World2Motion matches the two-stage baseline’s interaction success rate, with faster inference and closer video–motion agreement than CoMoVi.</p></div>
-    <div class="stats"><article><strong>3.34<span>×</span></strong><h4>Faster inference</h4><p>vs. MiniMax-H3 + CameraHMR<br>156.59 s vs. 523.67 s</p></article><article><strong>91<span>%</span></strong><h4>Interaction success</h4><p>Matches the two-stage baseline<br>on the evaluated benchmark</p></article><article><strong>67.5<span>mm</span></strong><h4>Video–motion PoseError</h4><p>17.0% lower than CoMoVi<br>under the same evaluation</p></article></div>
-    <p class="results-note">Motion-only methods remain faster. The two-stage pipeline has higher Contact-F1 (0.24 vs. 0.22); equal interaction success does not imply equal contact accuracy.</p>
+    <div class="section-heading"><h2 class="eyebrow" id="results-heading">04 / RESULTS</h2><span>10 examples · Video ↔ 3D motion</span></div>
+    <div id="results-grid" class="results-grid" aria-label="Ten World2Motion video and motion examples"></div>
+    <noscript><p>Enable JavaScript to view the interactive video comparisons.</p></noscript>
   </section>
   <section class="citation-section" id="citation"><div class="section"><div class="section-heading"><p class="eyebrow">CITATION</p><span>World2Motion · arXiv 2026</span></div><div class="citation-heading"><h2>Building on this work?</h2><button class="button button-outline" id="copy-citation" type="button">Copy BibTeX</button></div><pre><code id="bibtex">@misc{tu2026world2motion,
   title={World2Motion: Turning Video World Models into 3D Human Motion Generators},
@@ -95,5 +94,5 @@
 }</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div></section>
 </main>
 <footer><a class="nav-brand" href="#cover">World<span>2</span>Motion</a><span>Turning video world models into 3D human motion generators.</span><a href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener">arXiv</a><a href="#cover">Back to top</a></footer>
-<script src="assets/comparison.js?v=body-3"></script><script src="assets/playback.js"></script><script src="app.js?v=body-3"></script><script src="comparison-viewer.js?v=body-3"></script><script src="intro.js?v=seamless-2"></script>
+<script src="assets/comparison.js?v=interactive-5"></script><script src="assets/playback.js"></script><script src="app.js?v=interactive-5"></script><script src="wipe-player.js?v=interactive-5"></script><script src="comparison-viewer.js?v=interactive-5"></script><script src="assets/results.js?v=interactive-5"></script><script src="results-viewer.js?v=interactive-5"></script><script src="intro.js?v=seamless-2"></script>
 </body></html>
