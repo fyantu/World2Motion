@@ -6,31 +6,37 @@
   <meta name="description" content="World2Motion jointly generates scene-aware 3D human motion and video from a single image and a text prompt. Explore the paper, method and synchronized video–motion results.">
   <meta name="theme-color" content="#101213">
   <meta property="og:title" content="World2Motion"><meta property="og:description" content="Turning Video World Models into 3D Human Motion Generators"><meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=cover16-1">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=intro-1">
+  <link rel="stylesheet" href="intro.css?v=intro-1">
+  <noscript><style>.intro-scroll{height:auto}.intro-stage{height:auto;min-height:100svh;padding:80px 20px 120px;background:linear-gradient(#020609b8,#020609db),url(assets/cover-16-cases.webp) center/cover}.intro-film,.intro-type,.intro-curtain,.intro-kicker,.intro-dim{display:none}.intro-sr-only{position:relative!important;clip:auto;width:auto;height:auto;margin:0 0 40px;overflow:visible;white-space:normal;font-size:clamp(40px,9vw,140px);text-align:center}.opening-copy{position:relative;left:auto;top:auto;width:100%;opacity:1;transform:none;pointer-events:auto}.intro-chrome .quiet-button{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#overview">Skip to content</a>
-<section class="hero" id="cover" aria-labelledby="hero-title">
-  <div class="hero-mosaic" id="hero-mosaic"><video id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/cover-16-cases.webp" aria-label="Sixteen World2Motion examples with continuously sliding video and 3D motion comparisons"><source src="assets/cover-16-cases-mobile.mp4" media="(max-width: 650px)" type="video/mp4"><source src="assets/cover-16-cases.mp4" type="video/mp4"></video></div>
-  <div class="hero-shade"></div>
-  <div class="hero-top"><a class="wordmark" href="#cover">W<span class="mark-two">2</span>M<span class="wordmark-line"></span>World2Motion</a><span class="edition">RESEARCH / 2026</span></div>
-  <div class="hero-content">
-    <p class="eyebrow">VIDEO WORLD MODELS × HUMAN MOTION</p>
-    <h1 id="hero-title">World<span>2</span>Motion</h1>
-    <p class="hero-title">Turning Video World Models into<br class="desktop"> 3D Human Motion Generators</p>
-    <p class="hero-description">One image. One prompt.<br>Video and 3D motion, generated together.</p>
+<section class="intro-scroll" id="cover" aria-labelledby="hero-title">
+  <div class="intro-stage" id="intro-stage">
+    <video class="intro-film" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/cover-16-cases.webp" aria-label="Sixteen examples with moving video and 3D motion comparisons"><source src="assets/cover-16-cases-mobile.mp4" media="(max-width: 650px)" type="video/mp4"><source src="assets/cover-16-cases.mp4" type="video/mp4"></video>
+    <div class="intro-dim" id="intro-dim"></div>
+    <div class="intro-curtain" id="intro-curtain"></div>
+    <svg class="intro-type" id="intro-type" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+      <defs><mask id="intro-letter-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" fill="white"/><text id="intro-cutout-title" x="0" y="0" font-size="200" fill="black">World2Motion</text></mask></defs>
+      <rect id="intro-matte" x="0" y="0" width="100%" height="100%" fill="#030608" mask="url(#intro-letter-mask)"/>
+      <text id="intro-solid-title" x="0" y="0" font-size="200" fill="white">World2Motion</text>
+    </svg>
+    <div class="intro-kicker" id="intro-kicker" aria-hidden="true"><p>World2Motion</p></div>
+    <h1 class="intro-sr-only" id="hero-title">World2Motion</h1>
+    <div class="opening-copy" id="intro-copy">
+      <p class="intro-paper-title">Turning Video World Models into<br>3D Human Motion Generators</p>
+    <div class="people" aria-label="Authors and affiliations">
+      <p class="authors">Tu Fangyuan<sup>1</sup><span>·</span>Xiangyue Zhang<sup>2</sup><span>·</span>Yiyi Cai<sup>2</sup><span>·</span>Yichen Peng<sup>4</sup><span>·</span>Kunhang Li<sup>2</sup><br><span class="author-break-dot">·</span>Bo Zheng<sup>3</sup><span>·</span>Zhixiang Wang<sup>3</sup><span>·</span>Kaipeng Zhang<sup>3</sup><span>·</span>Erwin Wu<sup>4</sup><span>·</span>Haoran Xie<sup>1</sup><span>·</span>Haiyang Liu<sup>2</sup></p>
+      <p class="affiliations"><span><sup>1</sup>Japan Advanced Institute of Science and Technology</span><span><sup>2</sup>The University of Tokyo</span><span><sup>3</sup>Alaya Lab</span><span><sup>4</sup>Institute of Science Tokyo</span></p>
+    </div>
     <div class="resource-links">
       <a class="button button-light" href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>arXiv</a>
       <a class="button button-glass" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>Watch video</a>
       <a class="button button-glass" href="supplementary/">All experiments</a>
     </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="people" aria-label="Authors and affiliations">
-      <p class="authors">Tu Fangyuan<sup>1</sup><span>·</span>Xiangyue Zhang<sup>2</sup><span>·</span>Yiyi Cai<sup>2</sup><span>·</span>Yichen Peng<sup>4</sup><span>·</span>Kunhang Li<sup>2</sup><br><span class="author-break-dot">·</span>Bo Zheng<sup>3</sup><span>·</span>Zhixiang Wang<sup>3</sup><span>·</span>Kaipeng Zhang<sup>3</sup><span>·</span>Erwin Wu<sup>4</sup><span>·</span>Haoran Xie<sup>1</sup><span>·</span>Haiyang Liu<sup>2</sup></p>
-      <p class="affiliations"><span><sup>1</sup>Japan Advanced Institute of Science and Technology</span><span><sup>2</sup>The University of Tokyo</span><span><sup>3</sup>Alaya Lab</span><span><sup>4</sup>Institute of Science Tokyo</span></p>
     </div>
-    <div class="hero-bottom-line"><a href="#overview">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a><button id="hero-toggle" class="quiet-button" type="button" aria-controls="hero-video">Play cover</button><span>16 EXAMPLES · VIDEO ↔ 3D MOTION</span></div>
+    <div class="intro-chrome"><a class="intro-scroll-hint" id="intro-hint" href="#overview">SCROLL TO EXPLORE <span aria-hidden="true">&#8595;</span></a><span class="intro-caption" id="intro-caption">16 EXAMPLES &middot; VIDEO &#8596; 3D MOTION</span><button id="hero-toggle" class="quiet-button" type="button" aria-controls="hero-video">Play cover</button></div>
   </div>
 </section>
 <header class="nav-shell"><nav aria-label="Main navigation"><a class="nav-brand" href="#cover">World<span>2</span>Motion</a><div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#demos">Demos</a><a href="#results">Results</a><a href="#citation">Citation</a></div><a class="nav-paper" href="https://arxiv.org/pdf/2609.37004" target="_blank" rel="noopener">Read paper</a></nav></header>
@@ -80,5 +86,5 @@
 }</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div></section>
 </main>
 <footer><a class="nav-brand" href="#cover">World<span>2</span>Motion</a><span>Turning video world models into 3D human motion generators.</span><a href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener">arXiv</a><a href="#cover">Back to top</a></footer>
-<script src="assets/gallery.js"></script><script src="assets/playback.js"></script><script src="app.js?v=cover16-1"></script>
+<script src="assets/gallery.js"></script><script src="assets/playback.js"></script><script src="app.js?v=intro-1"></script><script src="intro.js?v=intro-1"></script>
 </body></html>

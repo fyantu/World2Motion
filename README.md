@@ -33,3 +33,9 @@ For local viewing, open `index.html`, or serve this directory with a static HTTP
 ## Sources
 
 Paper content and figures: World2Motion, arXiv:2609.37004, with the author's latest local source files. Videos: the author's existing experimental supplement. Homepage layout was inspired by SolarWM (https://junchao-cs.github.io/SolarWM-Web/); this implementation uses World2Motion's own media and new HTML/CSS/JavaScript.
+
+## Scroll opening
+
+The homepage opens on the 16-case video wall with a black panel on the right and a small centered title. Native scrolling moves the panel edge right, reveals a large video-filled wordmark, then brings in the solid white title, paper title, authors and resource buttons. Scroll upward to reverse the sequence. No wheel or touch events are intercepted.
+
+`intro.css` handles the full-screen sticky stage; `intro.js` maps scroll position to an SVG text mask and the credits. The same video plays continuously behind every stage. Reduced-motion users see the final cover without the scrolling transition or video autoplay. A JavaScript-free fallback shows the poster and paper details.
