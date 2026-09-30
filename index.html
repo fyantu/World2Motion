@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>World2Motion — Turning Video World Models into 3D Human Motion Generators</title>
+  <meta name="description" content="World2Motion jointly generates scene-aware 3D human motion and video from a single image and a text prompt. Explore the paper, method and synchronized video–motion results.">
+  <meta name="theme-color" content="#101213">
+  <meta property="og:title" content="World2Motion"><meta property="og:description" content="Turning Video World Models into 3D Human Motion Generators"><meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#overview">Skip to content</a>
+<section class="hero" id="cover" aria-labelledby="hero-title">
+  <div class="hero-mosaic" id="hero-mosaic" aria-hidden="true"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-top"><a class="wordmark" href="#cover">W<span class="mark-two">2</span>M<span class="wordmark-line"></span>World2Motion</a><span class="edition">RESEARCH / 2026</span></div>
+  <div class="hero-content">
+    <p class="eyebrow">VIDEO WORLD MODELS × HUMAN MOTION</p>
+    <h1 id="hero-title">World<span>2</span>Motion</h1>
+    <p class="hero-title">Turning Video World Models into<br class="desktop"> 3D Human Motion Generators</p>
+    <p class="hero-description">One image. One prompt.<br>Video and 3D motion, generated together.</p>
+    <div class="resource-links">
+      <a class="button button-light" href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>arXiv</a>
+      <a class="button button-glass" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>Watch video</a>
+      <a class="button button-glass" href="supplementary/">All experiments</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="people" aria-label="Authors and affiliations">
+      <p class="authors">Tu Fangyuan<sup>1</sup><span>·</span>Xiangyue Zhang<sup>2</sup><span>·</span>Yiyi Cai<sup>2</sup><span>·</span>Yichen Peng<sup>4</sup><span>·</span>Kunhang Li<sup>2</sup><br><span class="author-break-dot">·</span>Bo Zheng<sup>3</sup><span>·</span>Zhixiang Wang<sup>3</sup><span>·</span>Kaipeng Zhang<sup>3</sup><span>·</span>Erwin Wu<sup>4</sup><span>·</span>Haoran Xie<sup>1</sup><span>·</span>Haiyang Liu<sup>2</sup></p>
+      <p class="affiliations"><span><sup>1</sup>Japan Advanced Institute of Science and Technology</span><span><sup>2</sup>The University of Tokyo</span><span><sup>3</sup>Alaya Lab</span><span><sup>4</sup>Institute of Science Tokyo</span></p>
+    </div>
+    <div class="hero-bottom-line"><a href="#overview">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a><button id="hero-toggle" class="quiet-button" type="button">Play cover</button><span>IMAGE + TEXT → VIDEO + 3D MOTION</span></div>
+  </div>
+</section>
+<header class="nav-shell"><nav aria-label="Main navigation"><a class="nav-brand" href="#cover">World<span>2</span>Motion</a><div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#demos">Demos</a><a href="#results">Results</a><a href="#citation">Citation</a></div><a class="nav-paper" href="https://arxiv.org/pdf/2609.37004" target="_blank" rel="noopener">Read paper</a></nav></header>
+<main>
+  <section class="section overview" id="overview">
+    <div class="section-heading"><p class="eyebrow">01 / OVERVIEW</p><span>From the visual world to human motion.</span></div>
+    <figure class="overview-film"><video id="overview-video" controls playsinline preload="none" poster="assets/overview-poster.jpg" aria-label="World2Motion overview video"><source src="assets/overview.mp4" type="video/mp4">Your browser does not support video.</video><figcaption><span><b>World2Motion</b> · Project overview</span><span>01:45 · Video with audio</span></figcaption></figure>
+    <div class="intro-copy"><h2>From a world model.<br><span>Into the 3D world.</span></h2><div><p>Video world models capture rich visual knowledge about people and their surroundings. World2Motion adapts Cosmos 3 to produce an explicit 3D human motion sequence alongside the generated video.</p><p>Conditioned on a single scene image and a text prompt, the two outputs are generated in one stage, making scene-aware human motion available without a separate motion-recovery pass.</p><a class="text-link" href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener">Read the abstract</a></div></div>
+  </section>
+  <section class="feature-band" aria-label="Key features"><div class="feature-inner">
+    <article><span class="feature-index">01</span><h3>One scene.<br>Two connected outputs.</h3><p>Generate video and 3D human motion together from an image and an action prompt.</p></article>
+    <article><span class="feature-index">02</span><h3>Motion that considers<br>its surroundings.</h3><p>Visual scene context guides approaching a chair, sitting down, lifting and carrying.</p></article>
+    <article><span class="feature-index">03</span><h3>Separate noise levels.<br>Shared denoising progress.</h3><p>A shift-decoupled schedule accommodates the different requirements of video and motion.</p></article>
+  </div></section>
+  <section class="section" id="method">
+    <div class="section-heading"><p class="eyebrow">02 / METHOD</p><span>Turning visual priors into explicit motion.</span></div>
+    <div class="method-heading"><h2>A video world model,<br><span>with a motion branch.</span></h2><p>World2Motion adapts a Mixture-of-Transformers backbone. Video and motion interact through shared attention while retaining their own representations and noise schedules.</p></div>
+    <figure class="paper-figure"><a href="assets/method.webp" target="_blank" aria-label="Open the full-resolution method diagram"><img src="assets/method.webp" width="2200" height="799" alt="World2Motion architecture: initial pose estimation, video and motion branches, shared attention, and a shift-decoupled denoising schedule." loading="lazy"></a><figcaption>CameraHMR estimates the initial pose from the input image. The adapted backbone then jointly predicts video and 3D motion.</figcaption></figure>
+    <div class="method-notes"><article><p class="eyebrow">PAIRED TRAINING DATA</p><h3>Synthetic interactions.<br>Real human motion.</h3><p>HOI-mix combines synthetic video–motion pairs with real videos paired with estimated 3D motion: 20,812 training triplets covering 29.15 hours.</p></article><article><p class="eyebrow">TEMPORAL STABILITY</p><h3>Root-relative translation.<br>Modality-specific noise.</h3><p>Motion is represented relative to its initial root position. Different video and motion noise shifts share denoising progress; final main-model results use the smoothing described in the paper.</p></article></div>
+  </section>
+  <section class="demo-section" id="demos"><div class="section">
+    <div class="section-heading"><p class="eyebrow">03 / DEMOS</p><span>See the video. Inspect the motion.</span></div>
+    <div class="demo-heading"><h2>Same action.<br><span>Two ways to see it.</span></h2><p>Explore paired generated video and 3D motion. Play, pause and seek either player to control the pair.</p></div>
+    <div class="gallery-controls"><div class="tabs" role="tablist" aria-label="Motion examples"><button id="tab-interaction" type="button" role="tab" aria-selected="true" aria-controls="demo-grid" data-category="interaction">Scene interaction <span>04</span></button><button id="tab-yoga" type="button" role="tab" aria-selected="false" aria-controls="demo-grid" tabindex="-1" data-category="yoga">Yoga <span>02</span></button><button id="tab-dance" type="button" role="tab" aria-selected="false" aria-controls="demo-grid" tabindex="-1" data-category="dance">Dance <span>02</span></button></div><div class="speed-control"><label for="speed">Speed</label><select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></div></div>
+    <div id="demo-grid" class="demo-grid" role="tabpanel" aria-labelledby="tab-interaction"></div>
+    <div class="gallery-footer"><p>Objects in our motion renderings remain fixed at the first frame. Dashed outlines indicate scene context.</p><a class="button button-dark" href="supplementary/">Explore all experimental videos</a></div>
+    <noscript><p>Enable JavaScript to use the synchronized gallery, or <a href="supplementary/">open the video supplement</a>.</p></noscript>
+  </div></section>
+  <section class="section" id="results">
+    <div class="section-heading"><p class="eyebrow">04 / RESULTS</p><span>Evaluated on 100 interaction cases.</span></div>
+    <div class="results-heading"><h2>Scene-aware motion.<br><span>A shorter path to generation.</span></h2><p>World2Motion matches the two-stage baseline’s interaction success rate, while generating the video and motion together in substantially less time.</p></div>
+    <div class="stats"><article><strong>3.34<span>×</span></strong><h3>Faster inference</h3><p>vs. MiniMax-H3 + CameraHMR<br>156.59 s vs. 523.67 s</p></article><article><strong>91<span>%</span></strong><h3>Interaction success</h3><p>Matches the two-stage baseline<br>on the evaluated benchmark</p></article><article><strong>67.5<span>mm</span></strong><h3>Video–motion PoseError</h3><p>17.0% lower than CoMoVi<br>under the same evaluation</p></article></div>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Main comparison table"><table><thead><tr><th scope="col">Method</th><th scope="col">FID ↓</th><th scope="col">ISR ↑</th><th scope="col">PoseError ↓</th><th scope="col">Time ↓</th></tr></thead><tbody><tr><th scope="row">HY-Motion</th><td>0.46</td><td>0.51</td><td>—</td><td>2.83 s</td></tr><tr><th scope="row">MiniMax-H3 + CameraHMR</th><td>0.69</td><td>0.91</td><td>—</td><td>523.67 s</td></tr><tr><th scope="row">CoMoVi</th><td>0.71</td><td>0.69</td><td>81.28 mm</td><td>270.45 s</td></tr><tr class="ours-row"><th scope="row">World2Motion <span>Ours</span></th><td>0.27</td><td>0.91</td><td>67.50 mm</td><td>156.59 s</td></tr></tbody></table></div>
+    <p class="table-note">Selected methods from the main comparison. PoseError measures pelvis-relative agreement with CameraHMR estimates from generated video. Interaction success is assessed with Qwen3-VL; it does not measure exact physical contact. Motion-only methods remain faster.</p>
+    <div class="result-links"><a class="text-link" href="supplementary/#comparison">View all eight methods</a><a class="text-link" href="supplementary/#ablation">Explore ablation studies</a><a class="text-link" href="supplementary/#failures">See failure cases</a></div>
+  </section>
+  <section class="citation-section" id="citation"><div class="section"><div class="section-heading"><p class="eyebrow">05 / CITATION</p><span>World2Motion · arXiv 2026</span></div><div class="citation-heading"><h2>Building on this work?</h2><button class="button button-outline" id="copy-citation" type="button">Copy BibTeX</button></div><pre><code id="bibtex">@misc{tu2026world2motion,
+  title={World2Motion: Turning Video World Models into 3D Human Motion Generators},
+  author={Tu Fangyuan and Xiangyue Zhang and Yiyi Cai and Yichen Peng and
+          Kunhang Li and Bo Zheng and Zhixiang Wang and Kaipeng Zhang and
+          Erwin Wu and Haoran Xie and Haiyang Liu},
+  year={2026},
+  eprint={2609.37004},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2609.37004}
+}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div></section>
+</main>
+<footer><a class="nav-brand" href="#cover">World<span>2</span>Motion</a><span>Turning video world models into 3D human motion generators.</span><a href="https://arxiv.org/abs/2609.37004" target="_blank" rel="noopener">arXiv</a><a href="#cover">Back to top</a></footer>
+<script src="assets/gallery.js"></script><script src="assets/playback.js"></script><script src="app.js"></script>
+</body></html>
