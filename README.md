@@ -16,9 +16,9 @@ The cover's third row, fourth column uses ablation case b12 (dark-blue dress, tu
 
 ## Publish
 
-The intended repository is `fyantu/World2Motion-Web`. Put this folder's contents at the root of its `main` branch. In **Settings → Pages**, select **Deploy from a branch**, then **main** and **/(root)**. The `.nojekyll` file disables Jekyll processing. No build step or package installation is needed.
+The intended repository is `fyantu/World2Motion`. Put this folder's contents at the root of its `main` branch. In **Settings → Pages**, select **Deploy from a branch**, then **main** and **/(root)**. The `.nojekyll` file disables Jekyll processing. No build step or package installation is needed.
 
-Project URL after deployment: `https://fyantu.github.io/World2Motion-Web/`
+Project URL after deployment: `https://fyantu.github.io/World2Motion/`
 
 GitHub's guide: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
