@@ -1,13 +1,11 @@
 /* Scroll-driven opening: full-screen film, cutout wordmark, paper cover. */
 .intro-scroll{position:relative;height:285svh;min-height:100vh;background:#030608;color:#fff;isolation:isolate;scroll-margin-top:0}
 .intro-stage{position:sticky;top:0;height:100svh;min-height:480px;overflow:hidden;background:#030608;isolation:isolate}
-.intro-film,.intro-dim,.intro-curtain,.intro-type{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.intro-film,.intro-dim,.intro-type{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .intro-film{z-index:0;object-fit:cover;background:#10181c}
 .intro-dim{z-index:1;background:#020609;opacity:0}
-.intro-curtain{z-index:2;background:#030608;clip-path:inset(0 0 0 66%);will-change:clip-path}
 .intro-type{z-index:3;overflow:hidden}
-.intro-type text{font-family:Arial,Helvetica,sans-serif;font-weight:900;letter-spacing:-.06em}
-.intro-type #intro-matte{opacity:0}
+.intro-type #intro-matte{opacity:1}
 .intro-type #intro-solid-title{opacity:0}
 .intro-kicker{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none}
 .intro-kicker p{font-size:clamp(21px,2vw,30px);font-weight:650;letter-spacing:.12em;text-shadow:0 2px 15px #0008}
@@ -51,6 +49,6 @@
 @media(prefers-reduced-motion:reduce){
   .intro-scroll{height:100svh;min-height:800px}
   .intro-stage{height:100%;min-height:800px;position:relative}
-  .intro-curtain,.intro-kicker{display:none}
+  .intro-kicker{display:none}
   .intro-dim{opacity:.8}
 }

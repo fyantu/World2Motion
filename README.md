@@ -4,9 +4,9 @@
 
 Paper: https://arxiv.org/abs/2609.37004
 
-A static research homepage for GitHub Pages. It includes the project overview film, method diagram, eight paired examples, quantitative results, citation, and the complete experimental video supplement. All 122 video files are stored locally. The page has no external script, font, or stylesheet dependencies.
+A static research homepage for GitHub Pages. It includes the project overview film, method diagram, eight paired examples, quantitative results, citation, and the complete experimental video supplement. All 124 video files, including the two cover encodes, are stored locally. The page has no external script, font, or stylesheet dependencies.
 
-The cover adds a single looping 4×4 montage of 16 selected cases. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently, pauses offscreen, and has a pause/resume button. Reduced-motion preferences disable automatic playback.
+The cover adds a single looping 4×4 montage of 16 selected cases. The tiles meet edge to edge without borders, gutters or label rows. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently, pauses offscreen, and has a pause/resume button. Reduced-motion preferences disable automatic playback.
 
 ## Publish
 
@@ -36,6 +36,6 @@ Paper content and figures: World2Motion, arXiv:2609.37004, with the author's lat
 
 ## Scroll opening
 
-The homepage opens on the 16-case video wall with a black panel on the right and a small centered title. Native scrolling moves the panel edge right, reveals a large video-filled wordmark, then brings in the solid white title, paper title, authors and resource buttons. Scroll upward to reverse the sequence. No wheel or touch events are intercepted.
+The homepage opens with a black region on the left, video on the right, and a small centered title. The black region is the magnified gap between the 2 and M in World2Motion. Native scrolling zooms out the same vector wordmark: its edge moves right and the surrounding letters become visible, filled with the video wall. The wordmark then becomes white as the paper title, authors and resource buttons appear. Scroll upward to reverse the sequence. No wheel or touch events are intercepted.
 
-`intro.css` handles the full-screen sticky stage; `intro.js` maps scroll position to an SVG text mask and the credits. The same video plays continuously behind every stage. Reduced-motion users see the final cover without the scrolling transition or video autoplay. A JavaScript-free fallback shows the poster and paper details.
+`intro.css` handles the full-screen sticky stage; `intro.js` maps scroll position to an SVG outline mask and the credits. One vector path, outlined from Arial Bold, is shared by the cutout and solid wordmark so their geometry stays aligned across browsers. The same video plays continuously behind every stage. Reduced-motion users see the final cover without the scrolling transition or video autoplay. A JavaScript-free fallback shows the poster and paper details.
