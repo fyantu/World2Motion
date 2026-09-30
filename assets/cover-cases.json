@@ -1,0 +1,89 @@
+{
+  "layout": "4 x 4",
+  "duration_seconds": 5.041666666666667,
+  "frames": 121,
+  "fps": 24,
+  "panel_layout": "Animated comparison wipe: RGB on the left and 3D motion on the right, with continuously moving boundaries from 10% to 90%. Original full frames, identical source timestamps, no motion speed changes.",
+  "cases": [
+    {
+      "number": 1,
+      "id": "omomo_sub17_smallbox_042_c00__male",
+      "title": "Lift and carry a box"
+    },
+    {
+      "number": 2,
+      "id": "samp_highstool008_i00__male",
+      "title": "Walk to a high stool and sit"
+    },
+    {
+      "number": 3,
+      "id": "omomo_sub9_mop_040_c00__male",
+      "title": "Lift and swing a mop"
+    },
+    {
+      "number": 4,
+      "id": "bili_BV1k44y1o72z_BV1k44y1o72z_s0028_g00",
+      "title": "Forward bend to upward salute"
+    },
+    {
+      "number": 5,
+      "id": "bili_BV1Af4y1y7NK_BV1Af4y1y7NK_s0127_g00",
+      "title": "Side angle to star pose"
+    },
+    {
+      "number": 6,
+      "id": "samp_sofa010_i00__female",
+      "title": "Walk to a sofa and sit"
+    },
+    {
+      "number": 7,
+      "id": "omomo_sub13_vacuum_005_c00__male",
+      "title": "Pick up and carry a vacuum"
+    },
+    {
+      "number": 8,
+      "id": "samp_highstool006_i01__female",
+      "title": "Stand up from a high stool"
+    },
+    {
+      "number": 9,
+      "id": "dance09",
+      "title": "Hip sways and arm waves"
+    },
+    {
+      "number": 10,
+      "id": "dance10",
+      "title": "Side steps and flowing arm gestures"
+    },
+    {
+      "number": 12,
+      "id": "omomo_sub4_smallbox_032_c00__female",
+      "title": "Step over a small box"
+    },
+    {
+      "number": 13,
+      "id": "omomo_sub10_floorlamp_012_c00__female",
+      "title": "Move a floor lamp"
+    },
+    {
+      "number": 14,
+      "id": "omomo_sub5_plasticbox_032_c00__male",
+      "title": "Kick a plastic box"
+    },
+    {
+      "number": 16,
+      "id": "chairs_0303_c02__female",
+      "title": "Cross the legs while seated"
+    },
+    {
+      "number": 19,
+      "id": "chairs_1603_c04__female",
+      "title": "Lean forward in an office chair"
+    },
+    {
+      "number": 20,
+      "id": "couch_session4_subject1_sofa_sit01_single_fitted_full_i00__male",
+      "title": "Sit down and stand back up"
+    }
+  ]
+}

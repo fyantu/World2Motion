@@ -6,6 +6,8 @@ Paper: https://arxiv.org/abs/2609.37004
 
 A static research homepage for GitHub Pages. It includes the project overview film, method diagram, eight paired examples, quantitative results, citation, and the complete experimental video supplement. All 122 video files are stored locally. The page has no external script, font, or stylesheet dependencies.
 
+The cover adds a single looping 4×4 montage of 16 selected cases. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently, pauses offscreen, and has a pause/resume button. Reduced-motion preferences disable automatic playback.
+
 ## Publish
 
 The intended repository is `fyantu/World2Motion-Web`. Put this folder's contents at the root of its `main` branch. In **Settings → Pages**, select **Deploy from a branch**, then **main** and **/(root)**. The `.nojekyll` file disables Jekyll processing. No build step or package installation is needed.
