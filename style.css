@@ -44,3 +44,18 @@
 .result-card .wipe-handle{width:33px;height:33px;font-size:20px}
 @media(max-width:1000px){.comparison-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.comparison-grid .method-card-header{min-height:88px}.comparison-grid .method-actions button{font-size:11px}.results-grid{gap:20px}.result-card-header{padding:15px;gap:10px}.result-card h3{font-size:16px}}
 @media(max-width:650px){.comparison-grid{gap:12px}.comparison-grid .method-card-header{padding:10px;min-height:98px}.comparison-grid .method-card h4{font-size:13px}.comparison-grid .method-category{font-size:9px}.comparison-grid .method-actions{padding:9px 7px;gap:5px}.comparison-grid .method-actions button{padding:6px 5px;font-size:9px}.wipe-label{font-size:8px;top:6px}.wipe-label-left{left:6px}.wipe-label-right{right:6px}.wipe-handle{width:23px;height:23px;font-size:16px}.results-grid{grid-template-columns:1fr;gap:22px}.result-card-header{min-height:64px}.result-card h3{font-size:17px}}
+
+/* Centered chapter headings, separated by space rather than rules. */
+.section+.section{border-top:0}
+.section-heading{flex-direction:column;align-items:center;justify-content:center;text-align:center;border:0;padding-bottom:0;margin-bottom:42px;gap:12px}
+.section-heading>span{max-width:none;text-align:center}
+.intro-copy h3 span{color:inherit;font:inherit}
+.nav-links{margin-left:auto}
+.citation-section{background:var(--paper);border:0;padding-top:100px;padding-bottom:100px}
+.citation-content{max-width:1100px;margin:0 auto}
+.citation-section pre{margin:0;padding:30px;background:#111214;border:1px solid #ffffff1f;border-radius:16px;font-size:14px;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere;color:#dddfe2}
+.citation-actions{display:flex;align-items:center;justify-content:flex-end;gap:18px;margin-top:16px}
+.citation-actions .copy-status{margin-right:auto}
+.citation-actions .button{border-radius:9px;font-size:12px;padding:8px 14px;flex-shrink:0}
+.template-credit a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:#777}
+@media(max-width:650px){.section-heading{align-items:center;gap:10px;margin-bottom:30px}.section-heading>span{text-align:center;max-width:none}.nav-links{margin-left:0}.citation-section{padding-top:65px;padding-bottom:65px}.citation-section pre{padding:20px 18px;font-size:11px;line-height:1.8}.citation-actions{gap:10px}.citation-actions .copy-status{font-size:10px}}

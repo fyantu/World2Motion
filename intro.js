@@ -3,11 +3,11 @@
   const cover=document.getElementById('cover'),stage=document.getElementById('intro-stage');
   const svg=document.getElementById('intro-type'),cutout=document.getElementById('intro-cutout-title'),solid=document.getElementById('intro-solid-title');
   const matte=document.getElementById('intro-matte'),dim=document.getElementById('intro-dim');
-  const kicker=document.getElementById('intro-kicker'),copy=document.getElementById('intro-copy'),caption=document.getElementById('intro-caption');
+  const kicker=document.getElementById('intro-kicker'),copy=document.getElementById('intro-copy');
   const hint=document.getElementById('intro-hint'),motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
   let width=1,height=1,top=0,distance=1,frame=0;
   // Vector geometry: start inside M's left stroke, beside the gap after 2.
-  const wordWidth=12625,centerX=6319.5,centerY=-724;
+  const centerX=6319.5,centerY=-724;
   const focusX=6605,focusY=-550,stemWidth=275;
   const clamp=n=>Math.max(0,Math.min(1,n));
   const ease=(a,b,p)=>{const t=clamp((p-a)/(b-a));return t*t*(3-2*t);};
@@ -16,8 +16,11 @@
     frame=0;
     const p=motionPreference.matches?1:clamp((window.scrollY-top)/distance);
     const reveal=ease(0,.66,p),finish=ease(.69,.9,p);
-    const finalY=height*(width<=700?.245:.285);
-    const baseScale=width*.89/wordWidth;
+    const finalY=height*(width<=700?.245:.32);
+    // Match the reference's roughly 9.2vw title size, using the outline's
+    // 2048-unit font em rather than stretching the word across the screen.
+    const titleFontSize=Math.min(144,Math.max(40,width*.092));
+    const baseScale=titleFontSize/2048;
     // One continuous zoom: the opening black region is the wordmark's own
     // negative space. Keep the same opaque mask until the white title arrives.
     const startScale=Math.max(width*.72/stemWidth,height/700);
@@ -37,7 +40,6 @@
     copy.inert=!visible;
     copy.classList.toggle('is-visible',visible);
     copy.setAttribute('aria-hidden',String(!visible));
-    caption.style.opacity=String(finish);
     hint.style.opacity=String(mix(.9,.55,finish));
     cover.dataset.introStage=p<.14?'opening':p<.72?'cutout':'credits';
   }
