@@ -12,6 +12,8 @@ The cover adds a single looping 4×4 montage of 16 selected cases. The tiles mee
 
 The September 30 selection replaces row 1, column 3 with a red-plaid-shirt character turning and sitting, row 3, column 1 with a burgundy-dress character lifting a plastic box, and row 4, column 2 with a linen-shirt character approaching a chair and sitting. Row 3, column 3 retains the original stepping-over-a-box case. The two new pairs come from existing generated interaction test results. Their colored SMPL-X renderings use the method's smoothed pose parameters and keep dashed objects fixed at the first frame.
 
+The cover's third row, fourth column uses ablation case b12 (dark-blue dress, turns and leg lifts), with the matching generated RGB and gold motion rendering from the train 10:1 / inference 10:1 setting. The other fifteen positions and the 15.125-second divider cycle are retained.
+
 ## Publish
 
 The intended repository is `fyantu/World2Motion-Web`. Put this folder's contents at the root of its `main` branch. In **Settings → Pages**, select **Deploy from a branch**, then **main** and **/(root)**. The `.nojekyll` file disables Jekyll processing. No build step or package installation is needed.
