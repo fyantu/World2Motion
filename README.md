@@ -10,6 +10,8 @@ The homepage comparison switches among box, chair and sofa interactions. The fiv
 
 The cover adds a single looping 4×4 montage of 16 selected cases. The tiles meet edge to edge without borders, gutters or label rows. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently, pauses offscreen, and has a pause/resume button. Reduced-motion preferences disable automatic playback.
 
+The September 30 selection replaces row 1, column 3 with a red-plaid-shirt character turning and sitting, row 3, column 3 with a burgundy-dress character lifting a plastic box, and row 4, column 2 with a linen-shirt character approaching a chair and sitting. The latter two pairs come from existing generated interaction test results. Their colored SMPL-X renderings use the method's smoothed pose parameters and keep dashed objects fixed at the first frame.
+
 ## Publish
 
 The intended repository is `fyantu/World2Motion-Web`. Put this folder's contents at the root of its `main` branch. In **Settings → Pages**, select **Deploy from a branch**, then **main** and **/(root)**. The `.nojekyll` file disables Jekyll processing. No build step or package installation is needed.

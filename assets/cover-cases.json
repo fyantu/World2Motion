@@ -3,84 +3,116 @@
   "duration_seconds": 5.041666666666667,
   "frames": 121,
   "fps": 24,
-  "panel_layout": "Animated comparison wipe: RGB on the left and 3D motion on the right, with continuously moving boundaries from 10% to 90%. Original full frames, identical source timestamps, no motion speed changes.",
+  "panel_layout": "Seamless tiles without label rows or outer borders. Animated comparison wipe: RGB on the left and 3D motion on the right, with continuously moving boundaries from 10% to 90%. Original full frames, identical source timestamps, no motion speed changes.",
   "cases": [
     {
+      "row": 1,
+      "column": 1,
       "number": 1,
       "id": "omomo_sub17_smallbox_042_c00__male",
       "title": "Lift and carry a box"
     },
     {
+      "row": 1,
+      "column": 2,
       "number": 2,
       "id": "samp_highstool008_i00__male",
       "title": "Walk to a high stool and sit"
     },
     {
-      "number": 3,
-      "id": "omomo_sub9_mop_040_c00__male",
-      "title": "Lift and swing a mop"
+      "row": 1,
+      "column": 3,
+      "number": 15,
+      "id": "couch_session3_subject3_chair2_sit18_fitted_full_i00__male",
+      "title": "Turn and sit using the backrest"
     },
     {
+      "row": 1,
+      "column": 4,
       "number": 4,
       "id": "bili_BV1k44y1o72z_BV1k44y1o72z_s0028_g00",
       "title": "Forward bend to upward salute"
     },
     {
+      "row": 2,
+      "column": 1,
       "number": 5,
       "id": "bili_BV1Af4y1y7NK_BV1Af4y1y7NK_s0127_g00",
       "title": "Side angle to star pose"
     },
     {
+      "row": 2,
+      "column": 2,
       "number": 6,
       "id": "samp_sofa010_i00__female",
       "title": "Walk to a sofa and sit"
     },
     {
+      "row": 2,
+      "column": 3,
       "number": 7,
       "id": "omomo_sub13_vacuum_005_c00__male",
       "title": "Pick up and carry a vacuum"
     },
     {
+      "row": 2,
+      "column": 4,
       "number": 8,
       "id": "samp_highstool006_i01__female",
       "title": "Stand up from a high stool"
     },
     {
+      "row": 3,
+      "column": 1,
       "number": 9,
       "id": "dance09",
       "title": "Hip sways and arm waves"
     },
     {
+      "row": 3,
+      "column": 2,
       "number": 10,
       "id": "dance10",
       "title": "Side steps and flowing arm gestures"
     },
     {
-      "number": 12,
-      "id": "omomo_sub4_smallbox_032_c00__female",
-      "title": "Step over a small box"
+      "row": 3,
+      "column": 3,
+      "number": 21,
+      "id": "omomo_sub8_plasticbox_014_c00__female",
+      "title": "Lift a plastic box from a stool"
     },
     {
+      "row": 3,
+      "column": 4,
       "number": 13,
       "id": "omomo_sub10_floorlamp_012_c00__female",
       "title": "Move a floor lamp"
     },
     {
+      "row": 4,
+      "column": 1,
       "number": 14,
       "id": "omomo_sub5_plasticbox_032_c00__male",
       "title": "Kick a plastic box"
     },
     {
-      "number": 16,
-      "id": "chairs_0303_c02__female",
-      "title": "Cross the legs while seated"
+      "row": 4,
+      "column": 2,
+      "number": 22,
+      "id": "couch_session3_subject3_chair1_sit07_fitted_full_i00__male",
+      "title": "Approach a chair and sit"
     },
     {
+      "row": 4,
+      "column": 3,
       "number": 19,
       "id": "chairs_1603_c04__female",
       "title": "Lean forward in an office chair"
     },
     {
+      "row": 4,
+      "column": 4,
       "number": 20,
       "id": "couch_session4_subject1_sofa_sit01_single_fitted_full_i00__male",
       "title": "Sit down and stand back up"
