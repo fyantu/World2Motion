@@ -4,7 +4,9 @@
 
 Paper: https://arxiv.org/abs/2609.37004
 
-A static research homepage for GitHub Pages. It includes the project overview film, method diagram, eight paired examples, quantitative results, citation, and the complete experimental video supplement. All 124 video files, including the two cover encodes, are stored locally. The page has no external script, font, or stylesheet dependencies.
+A static research homepage for GitHub Pages, with a black background and white typography. Its four main sections are Overview, Method, Comparison and Results. It includes the overview film, method diagram and three contributions, the complete Table 2, a case selector for eight comparison methods, key results, and an unnumbered citation footer. The existing experimental supplement remains in its own folder. All 124 video files, including the two cover encodes, are stored locally. The page has no external script, font, or stylesheet dependencies.
+
+The homepage comparison switches among box, chair and sofa interactions. The five motion-only methods show one player each; MiniMax-H3 + CameraHMR, CoMoVi and World2Motion include motion and RGB players. Each method has playback controls, and the whole comparison can be played, paused or resumed together. Switching cases pauses the previous players. Table 2 and the three contributions follow the arXiv v2 submission source. Ablation studies and failure cases are not shown or linked on the homepage.
 
 The cover adds a single looping 4×4 montage of 16 selected cases. The tiles meet edge to edge without borders, gutters or label rows. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently, pauses offscreen, and has a pause/resume button. Reduced-motion preferences disable automatic playback.
 
@@ -19,9 +21,10 @@ GitHub's guide: https://docs.github.com/en/pages/getting-started-with-github-pag
 ## Edit
 
 - `index.html`: paper information, authors, result table and citation.
-- `style.css`: desktop and mobile presentation.
-- `app.js`: cover playback, example categories and citation copying.
-- `assets/gallery.js`: selected video–motion pairs.
+- `style.css`: black-and-white desktop and mobile presentation.
+- `app.js`: cover playback, section navigation and citation copying.
+- `comparison-viewer.js`: case selection and individual/all-method playback controls.
+- `assets/comparison.js`: three cases and their eight methods, referencing existing supplement media.
 - `assets/playback.js`: synchronized play, pause, resume and seeking.
 - `supplementary/index.html`: full gallery with ablation, comparisons and failure cases.
 - `supplementary/media/`: experiment MP4 files.
