@@ -59,3 +59,5 @@
 .citation-actions .button{border-radius:9px;font-size:12px;padding:8px 14px;flex-shrink:0}
 .template-credit a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:#777}
 @media(max-width:650px){.section-heading{align-items:center;gap:10px;margin-bottom:30px}.section-heading>span{text-align:center;max-width:none}.nav-links{margin-left:0}.citation-section{padding-top:65px;padding-bottom:65px}.citation-section pre{padding:20px 18px;font-size:11px;line-height:1.8}.citation-actions{gap:10px}.citation-actions .copy-status{font-size:10px}}
+
+.overview-film{position:relative}.demo-start{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;white-space:nowrap}.demo-start[hidden]{display:none}

@@ -18,7 +18,7 @@ const autoplayObserver=new IntersectionObserver(entries=>entries.forEach(({targe
   const player=autoplayPlayers.get(target);
   if(player){player.visible=isIntersecting;player.update();}
 }),{threshold:0});
-function registerAutoplay(root,group=linkPlayback(root)){
+function registerAutoplay(root,group=linkPlayback(root),{muted=true}={}){
   let userPaused=false,running=false;
   const player={visible:false,
     update(){
@@ -33,15 +33,18 @@ function registerAutoplay(root,group=linkPlayback(root)){
   };
   function repeat(){if(running&&group.finished())group.resume();}
   root.addEventListener('ended',repeat,true);
-  root.querySelectorAll('video').forEach(video=>{video.muted=true;video.defaultMuted=true;});
+  root.querySelectorAll('video').forEach(video=>{video.muted=muted;video.defaultMuted=muted;});
   autoplayPlayers.set(root,player);autoplayObserver.observe(root);
   return player;
 }
 document.addEventListener('visibilitychange',()=>autoplayPlayers.forEach(player=>player.update()));
 const overviewVideo=$('#overview-video');
-overviewVideo.muted=true;overviewVideo.defaultMuted=true;overviewVideo.loop=true;
+const demoStart=$('#demo-start');
+overviewVideo.loop=true;
 const overviewAutoplay=registerAutoplay(overviewVideo.parentElement,{
-  resume:()=>overviewVideo.play().catch(()=>{}),pause:()=>overviewVideo.pause(),finished:()=>overviewVideo.ended
-});
+  resume:()=>overviewVideo.play().catch(error=>{if(error.name==='NotAllowedError')demoStart.hidden=false;}),
+  pause:()=>overviewVideo.pause(),finished:()=>overviewVideo.ended
+},{muted:false});
+demoStart.addEventListener('click',()=>{overviewVideo.muted=false;overviewAutoplay.resume();});
 overviewVideo.addEventListener('pause',()=>{if(overviewAutoplay.visible&&!document.hidden&&!overviewVideo.ended)overviewAutoplay.pause();});
-overviewVideo.addEventListener('play',()=>{if(overviewAutoplay.visible&&!document.hidden)overviewAutoplay.resume();});
+overviewVideo.addEventListener('play',()=>{demoStart.hidden=true;if(overviewAutoplay.visible&&!document.hidden)overviewAutoplay.resume();});
