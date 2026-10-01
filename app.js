@@ -39,12 +39,10 @@ function registerAutoplay(root,group=linkPlayback(root),{muted=true}={}){
 }
 document.addEventListener('visibilitychange',()=>autoplayPlayers.forEach(player=>player.update()));
 const overviewVideo=$('#overview-video');
-const demoStart=$('#demo-start');
 overviewVideo.loop=true;
 const overviewAutoplay=registerAutoplay(overviewVideo.parentElement,{
-  resume:()=>overviewVideo.play().catch(error=>{if(error.name==='NotAllowedError')demoStart.hidden=false;}),
+  resume:()=>overviewVideo.play().catch(()=>{}),
   pause:()=>overviewVideo.pause(),finished:()=>overviewVideo.ended
 },{muted:false});
-demoStart.addEventListener('click',()=>{overviewVideo.muted=false;overviewAutoplay.resume();});
 overviewVideo.addEventListener('pause',()=>{if(overviewAutoplay.visible&&!document.hidden&&!overviewVideo.ended)overviewAutoplay.pause();});
-overviewVideo.addEventListener('play',()=>{demoStart.hidden=true;if(overviewAutoplay.visible&&!document.hidden)overviewAutoplay.resume();});
+overviewVideo.addEventListener('play',()=>{if(overviewAutoplay.visible&&!document.hidden)overviewAutoplay.resume();});
