@@ -17,6 +17,7 @@
 .opening-copy .authors>span{color:#9bb1be;margin:0 8px}
 .opening-copy sup{color:#bdcdd6}
 .opening-copy .affiliations{justify-content:center;color:#c5d1d8;font-size:clamp(10px,.92vw,13px);gap:5px 19px;margin-top:14px}
+.opening-copy .author-note{margin:12px 0 0;font-size:clamp(10px,.92vw,13px);line-height:1.6;color:#c5d1d8}
 .opening-copy .resource-links{justify-content:center;margin-top:22px;gap:12px}
 .opening-copy .button-glass{background:#08131e6b;backdrop-filter:blur(10px);border-color:#c0d5df80}
 .intro-chrome{position:absolute;z-index:6;inset:auto 4% 25px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:10px;letter-spacing:.14em;color:#e0e9ee}
