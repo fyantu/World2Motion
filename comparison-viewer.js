@@ -27,10 +27,9 @@
   }
   function pauseComparison(){
     ++epoch;loading=false;
-    cards().forEach(card=>linkPlayback(card).pause());
+    cards().forEach(card=>autoplayPlayers.get(card)?.pause());
     updateAll();
   }
-  function pauseOtherSections(){pauseCover();$('#overview-video').pause();document.dispatchEvent(new CustomEvent('media-section',{detail:'comparison'}));}
   function methodCard(method,caseTitle){
     const paired=method.streams.length>1;
     const card=make('article','method-card'+(paired?' video-method':['hoifhli','light'].includes(method.id)?' interaction-method':' motion-method')+(method.id==='ours_smooth'?' ours':''));
@@ -38,18 +37,18 @@
     const heading=make('div','method-card-header');
     heading.append(make('h4','',method.name),make('span','method-category',method.category));
     card.append(heading);
-    if(paired)card.append(createWipePlayer(method.streams,caseTitle+' — '+method.name,pauseOtherSections));
+    if(paired)card.append(createWipePlayer(method.streams,caseTitle+' — '+method.name));
     else{
       const streams=make('div','method-streams'),figure=make('figure');
-      const video=mediaVideo(method.streams[0],caseTitle+' — '+method.name,pauseOtherSections);
+      const video=mediaVideo(method.streams[0],caseTitle+' — '+method.name);
       figure.append(video);streams.append(figure);card.append(streams);
     }
     const actions=make('div','method-actions'),play=make('button'),pause=make('button');
     const noun=paired?'pair':'motion';
     play.type=pause.type='button';pause.textContent='Pause '+noun;
-    play.addEventListener('click',()=>{pauseOtherSections();linkPlayback(card).resume();});
-    pause.addEventListener('click',()=>linkPlayback(card).pause());
-    actions.append(play,pause);card.append(actions);linkPlayback(card);watch(card,play,pause,noun);
+    play.addEventListener('click',()=>autoplayPlayers.get(card).resume());
+    pause.addEventListener('click',()=>autoplayPlayers.get(card).pause());
+    actions.append(play,pause);card.append(actions);registerAutoplay(card);watch(card,play,pause,noun);
     return card;
   }
   function showCase(){
@@ -67,12 +66,12 @@
   playAll.addEventListener('click',async()=>{
     const ticket=++epoch,groups=cards().map(linkPlayback);
     status.className='sr-only';
-    pauseOtherSections();loading=true;updateAll();
+    loading=true;updateAll();
     try{
       await Promise.all(groups.map(group=>group.ready()));
       if(ticket!==epoch)return;
       const restart=groups.every(group=>group.finished());
-      await Promise.all(groups.filter(group=>restart||!group.finished()).map(group=>group.resume()));
+      await Promise.all(cards().filter(card=>restart||!linkPlayback(card).finished()).map(card=>autoplayPlayers.get(card).resume()));
     }catch{
       if(ticket!==epoch)return;
       groups.forEach(group=>group.pause());
@@ -81,8 +80,5 @@
   });
   pauseAll.addEventListener('click',pauseComparison);
   $('#speed').addEventListener('change',()=>videos().forEach(video=>video.playbackRate=rate()));
-  $('#overview-video').addEventListener('play',()=>{pauseCover();pauseComparison();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseComparison();});
-  document.addEventListener('media-section',event=>{if(event.detail!=='comparison')pauseComparison();});
   showCase();
 })();
