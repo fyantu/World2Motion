@@ -2,13 +2,13 @@
 
 **World2Motion: Turning Video World Models into 3D Human Motion Generators**
 
-The page displays the author names without affiliations; paper links and citation information are omitted.
+Author names, affiliations, paper links and citation information are omitted from the page.
 
 A static research homepage for GitHub Pages, with a black background and white typography. Its four main sections are Overview, Method, Comparison and Results. It includes the overview film, method diagram and three contributions, the complete Table 2, three comparison metrics, eight comparison methods, ten result examples. The existing experimental supplement remains in its own folder. All 128 video files, including the two cover encodes, are stored locally. The page has no external script, font, or stylesheet dependencies.
 
 The qualitative comparison switches among box, chair and sofa interactions and uses two rows of four methods on desktop. The five motion-only methods show one player each; MiniMax-H3 + CameraHMR, CoMoVi and World2Motion each combine synchronized motion and RGB in one viewport. A draggable divider reveals either full frame, supports keyboard arrows/Home/End, and moves slowly during playback until manually adjusted. The overview demo attempts autoplay with sound when visible, using only its native video controls. Browser autoplay restrictions still apply. Comparison methods and results autoplay muted. All players loop while visible and pause offscreen or in a hidden tab. Paired videos share a clock and restart together. Explicit pauses persist until the user resumes playback. Each method has playback controls, and the whole comparison can be played, paused or resumed together. Switching cases pauses and releases the previous players. Results shows ten examples with the same divider and pair controls. Table 2 and the three contributions follow the paper source. Ablation studies and failure cases are not shown or linked on the homepage.
 
-The cover adds a single looping 4×4 montage of 16 selected cases. The tiles meet edge to edge without borders, gutters or label rows. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. The divider takes 15.125 seconds for one cycle, three times longer than the earlier cover; source actions keep their original speed. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently and pauses offscreen. Reduced-motion preferences disable automatic playback. The author block displays names without affiliation markers or institution names. The settled title uses a responsive font size matching the reference, with a 144px cap. Chapter headings are centered with whitespace between sections. The footer credits SolarWM as the template inspiration.
+The cover adds a single looping 4×4 montage of 16 selected cases. The tiles meet edge to edge without borders, gutters or label rows. Each tile uses a continuously sliding boundary to reveal RGB video on the left and 3D motion on the right, at matching source timestamps. The divider takes 15.125 seconds for one cycle, three times longer than the earlier cover; source actions keep their original speed. Desktop and mobile encodes share the same content. Selection details are in `assets/cover-cases.json`. The cover autoplays silently and pauses offscreen. Reduced-motion preferences disable automatic playback. The cover omits the author block. The settled title uses a responsive font size matching the reference, with a 144px cap. Chapter headings are centered with whitespace between sections. The footer credits SolarWM as the template inspiration.
 
 The September 30 selection replaces row 1, column 3 with a red-plaid-shirt character turning and sitting, row 3, column 1 with a burgundy-dress character lifting a plastic box, and row 4, column 2 with a linen-shirt character approaching a chair and sitting. Row 3, column 3 retains the original stepping-over-a-box case. The two new pairs come from existing generated interaction test results. Their colored SMPL-X renderings use the method's smoothed pose parameters and keep dashed objects fixed at the first frame.
 
@@ -24,7 +24,7 @@ GitHub's guide: https://docs.github.com/en/pages/getting-started-with-github-pag
 
 ## Edit
 
-- `index.html`: project information, author names and result table.
+- `index.html`: project information and result table.
 - `style.css`: black-and-white desktop and mobile presentation.
 - `app.js`: cover playback and section navigation.
 - `comparison-viewer.js`: case selection and individual/all-method playback controls.
@@ -45,6 +45,6 @@ Paper content and figures: World2Motion, with the author's latest local source f
 
 ## Scroll opening
 
-The homepage opens with a black region on the left, video on the right, and a small centered title. The black region is the magnified gap between the 2 and M in World2Motion. Native scrolling zooms out the same vector wordmark: its edge moves right and the surrounding letters become visible, filled with the video wall. The wordmark then becomes white as the paper title, author names appear. Scroll upward to reverse the sequence. No wheel or touch events are intercepted.
+The homepage opens with a black region on the left, video on the right, and a small centered title. The black region is the magnified gap between the 2 and M in World2Motion. Native scrolling zooms out the same vector wordmark: its edge moves right and the surrounding letters become visible, filled with the video wall. The wordmark then becomes white as the paper title appears. Scroll upward to reverse the sequence. No wheel or touch events are intercepted.
 
 `intro.css` handles the full-screen sticky stage; `intro.js` maps scroll position to an SVG outline mask and the credits. One vector path, outlined from Arial Bold, is shared by the cutout and solid wordmark so their geometry stays aligned across browsers. The same video plays continuously behind every stage. Reduced-motion users see the final cover without the scrolling transition or video autoplay. A JavaScript-free fallback shows the poster and paper details.
